@@ -2,7 +2,7 @@ from os import system
 
 def get_language():
     msg = "Please, select a language:\n1. Español\n2. English\nOption: "
-    lang = is_numeric_in_range(msg,"Inexistent option, try again\n",(1,2))
+    lang = get_numeric_option_in_range(msg,"Inexistent option, try again\n",(1,2))
     match lang:
         case 1:
             lang = "es"
@@ -22,7 +22,7 @@ def get_language():
     
     return lang_dict
 
-def is_numeric_in_range(msg:str, err_msg:str, limit:tuple):
+def get_numeric_option_in_range(msg:str, err_msg:str, limit:tuple):
     option = input(msg)
 
     while (not option.isnumeric() or int(option) < limit[0]
@@ -38,6 +38,6 @@ def is_numeric_in_range(msg:str, err_msg:str, limit:tuple):
 def try_again(lang_dict):
     msg = lang_dict["#try_again"]
     err_msg = lang_dict["#try_again_err"]
-    option = is_numeric_in_range(msg, err_msg, (0,1))
+    option = get_numeric_option_in_range(msg, err_msg, (0,1))
 
     return option

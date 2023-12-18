@@ -25,7 +25,7 @@ def guess_the_number(lang_dict:dict):
     while option != 0:
         msg = lang_dict["#02_range"]
         err_msg = lang_dict["#02_range_err"]
-        limit = maf.is_numeric_in_range(msg, err_msg, (1,10000))
+        limit = maf.get_numeric_option_in_range(msg, err_msg, (1,10000))
         rand_num = randint(1, limit)
 
         num_sel = 0
@@ -35,7 +35,7 @@ def guess_the_number(lang_dict:dict):
             msg = msg.replace("#1", str(limit))
             msg = msg.replace("#2", str(tries))
 
-            num_sel = maf.is_numeric_in_range(msg, err_msg, (1,10000))
+            num_sel = maf.get_numeric_option_in_range(msg, err_msg, (1,10000))
             tries -= 1
 
             if tries > 0 and num_sel != rand_num:
@@ -65,7 +65,7 @@ def rock_paper_scissors(lang_dict):
             print(scores)
             msg = lang_dict["#03_choice"]
             err_msg = lang_dict["#03_choice_err"] + scores
-            user_choice = maf.is_numeric_in_range(msg, err_msg, (1,3)) - 1
+            user_choice = maf.get_numeric_option_in_range(msg, err_msg, (1,3)) - 1
             cpu_choice = randint(0,2)
             print(elements[user_choice], "vs", elements[cpu_choice])
             result = "win"

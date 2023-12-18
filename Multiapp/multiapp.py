@@ -12,7 +12,7 @@ option = -1
 while(option != 0):
     msg = lang_dict["#menu"]
     err_msg = lang_dict["#menu_err"]
-    option = is_numeric_in_range(msg, err_msg, (0,3))
+    option = get_numeric_option_in_range(msg, err_msg, (0,3))
 
     sel_app = lang_dict["#app_selected"]
     match option:
