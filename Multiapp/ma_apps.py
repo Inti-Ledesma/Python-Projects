@@ -1,6 +1,6 @@
 import ma_functions as maf
-from os import system
 from random import randint
+from os import system
 
 def mad_libs_app(lang_dict:dict):
     option = 1
@@ -49,5 +49,55 @@ def guess_the_number(lang_dict:dict):
                 else:
                     print(lang_dict["#02_wrong_guess"].replace
                             ("#1",str(rand_num)))
+
+        option = maf.try_again(lang_dict)
+
+def rock_paper_scissors(lang_dict):
+    option = 1
+    elements = lang_dict["#03_elements"].split()
+
+    while option != 0:
+        user_score = 0
+        cpu_score = 0
+        while user_score < 3 and cpu_score < 3:
+            scores = lang_dict["#03_scores"].replace("#1",str(user_score))
+            scores = scores.replace("#2",str(cpu_score))
+            print(scores)
+            msg = lang_dict["#03_choice"]
+            err_msg = lang_dict["#03_choice_err"] + scores
+            user_choice = maf.is_numeric_in_range(msg, err_msg, (1,3)) - 1
+            cpu_choice = randint(0,2)
+            print(elements[user_choice], "vs", elements[cpu_choice])
+            result = "win"
+
+            if user_choice == cpu_choice:
+                result = "tie"
+            else:
+                match user_choice:
+                    case 0:
+                        if cpu_choice == 1:
+                            result = "lose"
+                    case 1:
+                        if cpu_choice == 2:
+                            result = "lose"
+                    case 2:
+                        if cpu_choice == 0:
+                            result = "lose"
+            
+            match result:
+                case "win":
+                    user_score += 1
+                case "lose":
+                    cpu_score += 1
+
+            print(lang_dict[f"#03_{result}_point"])
+            
+            input(lang_dict["#03_continue"])
+            system("cls")
+        
+        if user_score > cpu_score:
+            print(lang_dict[f"#03_win_match"])
+        else:
+            print(lang_dict[f"#03_lose_match"])
 
         option = maf.try_again(lang_dict)

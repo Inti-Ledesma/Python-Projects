@@ -12,7 +12,7 @@ option = -1
 while(option != 0):
     msg = lang_dict["#menu"]
     err_msg = lang_dict["#menu_err"]
-    option = is_numeric_in_range(msg, err_msg, (0,2))
+    option = is_numeric_in_range(msg, err_msg, (0,3))
 
     sel_app = lang_dict["#app_selected"]
     match option:
@@ -20,6 +20,8 @@ while(option != 0):
             sel_app += lang_dict["#app_01"] + "\n"
         case 2:
             sel_app += lang_dict["#app_02"] + "\n"
+        case 3:
+            sel_app += lang_dict["#app_03"] + "\n"
 
     system("cls")
     print(sel_app)
@@ -28,6 +30,8 @@ while(option != 0):
             mad_libs_app(lang_dict)
         case 2:
             guess_the_number(lang_dict)
+        case 3:
+            rock_paper_scissors(lang_dict)
     
     system("cls")
 
