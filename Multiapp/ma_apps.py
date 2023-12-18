@@ -3,6 +3,13 @@ from random import randint
 from os import system
 
 def mad_libs_app(lang_dict:dict):
+    '''
+    Brief: This app asks the user for some words and then put them
+    together on a short sentence
+    
+    Parameters:
+        - lang_dict: A dictionary with every sentence used in the app
+    '''
     option = 1
 
     while option != 0:
@@ -20,6 +27,13 @@ def mad_libs_app(lang_dict:dict):
         option = maf.try_again(lang_dict)
 
 def guess_the_number(lang_dict:dict):
+    '''
+    Brief: This app asks for a range starting from 1, then it will give
+    the user three attempts to guess the number between that range
+    
+    Parameters:
+        - lang_dict: A dictionary with every sentence used in the app
+    '''
     option = 1
 
     while option != 0:
@@ -53,6 +67,13 @@ def guess_the_number(lang_dict:dict):
         option = maf.try_again(lang_dict)
 
 def rock_paper_scissors(lang_dict):
+    '''
+    Brief: This app it's the classic game "Rock, paper, scissors",
+    the user competes with the CPU, the one that gains 3 points first wins
+    
+    Parameters:
+        - lang_dict: A dictionary with every sentence used in the app
+    '''
     option = 1
     elements = lang_dict["#03_elements"].split()
 
