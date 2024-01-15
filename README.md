@@ -1,0 +1,1 @@
+This is a repository dedicated to little projects made in python :D
